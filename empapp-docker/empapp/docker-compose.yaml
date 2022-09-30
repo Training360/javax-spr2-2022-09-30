@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  employees-postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: employees
+      POSTGRES_USER: employees
+      POSTGRES_PASSWORD: employees
+
+  employees-app:
+    image: employees
+    depends_on:
+      - employees-postgres
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://employees-postgres/employees'
+    entrypoint: ["java", "-jar", "employees.jar"]
+    ports:
+      - 8080:8080

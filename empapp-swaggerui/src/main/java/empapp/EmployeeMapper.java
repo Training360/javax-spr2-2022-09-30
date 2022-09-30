@@ -28,9 +28,11 @@ public interface EmployeeMapper {
     Address toAddress(CreateAddressDto createAddressDto);
 
     @AfterMapping
-    default void setShoppingCartSampleParent(@MappingTarget Employee employee){
-        for(Address address: employee.getAddresses()){
-            address.setEmployee(employee);
+    default void setShoppingCartSampleParent(@MappingTarget Employee employee) {
+        if (employee.getAddresses() != null) {
+            for (Address address : employee.getAddresses()) {
+                address.setEmployee(employee);
+            }
         }
     }
 }

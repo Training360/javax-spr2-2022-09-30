@@ -1,17 +1,17 @@
 ### List all employees
 
-GET http://localhost:8080/api/employees
+GET http://localhost:18085/api/employees
 Accept: application/json
 
 ### Find employee by id
 
-GET http://localhost:8080/api/employees/5
+GET http://localhost:18085/api/employees/5
 Accept: application/json
 
 
 ### Create employee
 
-POST http://localhost:8080/api/employees
+POST http://localhost:18085/api/employees
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ### Create employee with address
 
-POST http://localhost:8080/api/employees
+POST http://localhost:18085/api/employees
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ### Update
 
-PUT http://localhost:8080/api/employees/9
+PUT http://localhost:18085/api/employees/9
 Content-Type: application/json
 
 {
@@ -43,4 +43,43 @@ Content-Type: application/json
 
 ### Delete
 
-DELETE http://localhost:8080/api/employees/9
+DELETE http://localhost:18085/api/employees/9
+
+### Actuator
+GET http://localhost:18085/actuator
+
+### Health
+
+GET http://localhost:18085/actuator/health
+
+### Threaddump
+GET http://localhost:18085/actuator/threaddump
+
+### Spring
+GET http://localhost:18085/actuator/beans
+
+### Spring
+GET http://localhost:18085/actuator/conditions
+
+### Spring
+GET http://localhost:18085/actuator/mappings
+
+### Spring
+GET http://localhost:18085/actuator/configprops
+
+### HTTP
+GET http://localhost:18085/actuator/httptrace
+
+### Liq
+GET http://localhost:18085/actuator/info
+
+### Logger
+GET http://localhost:18085/actuator/loggers/empapp
+
+### Logger
+POST http://localhost:18085/actuator/loggers/empapp
+Content-Type: application/json
+
+{
+  "configuredLevel": "debug"
+}

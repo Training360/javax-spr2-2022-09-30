@@ -17,9 +17,12 @@ public class GpsCoordinateSenderGateway {
     @Scheduled(fixedRate = 10_000)
     public void generateGpsCoordinate() {
         var random = new Random();
-        var coord = random.nextDouble(-180, 180);
 
-        var message = Double.toString(coord);
+        var id = 100L;
+        var lat = random.nextDouble(-90, 90);
+        var lon = random.nextDouble(-180, 180);
+
+        var message = new GpsCoordinateMessage(id, new GpsCoordinate(lat, lon));
         log.info("Sending message: {}", message);
 
         jmsTemplate.convertAndSend("gpsQueue", message);

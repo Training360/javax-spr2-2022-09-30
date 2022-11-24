@@ -1,0 +1,69 @@
+### List employees
+
+GET http://localhost:8080/api/employees
+Accept: application/json
+
+### List employees with prefix
+GET http://localhost:8080/api/employees?prefix=john
+Accept: application/json
+
+### Find employee by id
+GET http://localhost:8080/api/employees/2
+
+### Find employee by id (not found)
+GET http://localhost:8080/api/employees/3
+
+### Create employee
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "name": "Jack Doe"
+}
+
+### Update employee
+POST http://localhost:8080/api/employees/3
+Content-Type: application/json
+
+{
+  "name": "Jack John Doe"
+}
+
+### Delete employee
+DELETE http://localhost:8080/api/employees/3
+Content-Type: application/json
+
+### Validation
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+}
+
+### Info
+GET http://localhost:8080/actuator/info
+
+### Property-k lekérdezése
+GET http://localhost:8080/actuator/env
+
+### Shutdown
+POST http://localhost:8080/actuator/shutdown
+
+### Jolokia
+GET http://localhost:8080/actuator/jolokia
+
+### Get logger
+GET http://localhost:8080/actuator/loggers/training.employees
+
+### Set logger
+POST http://localhost:8080/actuator/loggers/training.employees
+Content-Type: application/json
+
+{
+  "configuredLevel": "INFO"
+}
+
+### Audit events
+GET http://localhost:8080/actuator/auditevents
+
+###

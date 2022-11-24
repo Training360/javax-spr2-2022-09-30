@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class GpsController {
@@ -20,7 +21,13 @@ public class GpsController {
         var toRemove = new ArrayList<SseEmitter>();
         for (var emitter: emitters) {
             try {
-                emitter.send(message.toString());
+                emitter.send(
+                        SseEmitter.event()
+                        .name("gps")
+                        .comment("GPS location has changed")
+                        .id(UUID.randomUUID().toString())
+                        .data(message)
+                );
             }
             catch (IOException | IllegalStateException ioe) {
                 toRemove.add(emitter);

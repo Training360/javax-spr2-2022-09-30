@@ -6,7 +6,7 @@ window.onload = function() {
     document.querySelector("#message-button").onclick = function() {
         const text = document.querySelector("#message-input").value;
         const message = {"text": text};
-        client.send("/app/messagesDestination", {}, JSON.stringify(message));
+        client.send("/grr/messagesDestination", {}, JSON.stringify(message));
     }
 
     client.connect({}, function(frame) {

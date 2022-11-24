@@ -8,7 +8,7 @@ import org.springframework.jms.annotation.JmsListener;
 public class GpsCoordinateListener {
 
     @JmsListener(destination = "gpsQueue")
-    public void handleMessage(GpsCoordinate message) {
+    public void handleMessage(GpsCoordinateMessage message) {
       log.info("Message has arrived: {}", message);
     }
 }
